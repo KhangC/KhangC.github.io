@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- Boostrap Stylesheet -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen">
+
+        <!-- Our own CSS stylesheet -->
+        <link rel="stylesheet" href="assets/css/styles.css" media="screen">
+
+        </head>
+        <body>
+        
+        <button class="tablink" onclick="openPage('Home', this, 'yellow')"id="defaultOpen">Home</button>
+        <button class="tablink" onclick="openPage('Data', this, 'yellow')">Data</button>
+        <button class="tablink" onclick="openPage('Comparison', this, 'yellow')">Comparison</button>
+        
+        <div id="Home" class="tabcontent">
+    
+          <p>    <h2>Home</h2>
+            <p>Hello,
+            </p>
+  
+            <p>The purpose of this website is to compare data, analyze trends and identify links within the weather data csv file.
+                   </p>
+  
+
+
+                <a target="_Graph" href="C:/Users/Khang/OneDrive/Desktop/Web HW/Resources/assets/images/Fig1.png">
+                  <img src="C:/Users/Khang/OneDrive/Desktop/Web HW/Resources/assets/images/Fig1.png" alt="Graph">
+        </div>
+        
+        <div id="Data" class="tabcontent">
+          <h3>Data</h3> 
+          <body>
+            <script type="text/javascript"charset="utf-8">
+                CsvToHtmlTable.init({
+                  csv_path: 'C:/Users/Khang/OneDrive/Desktop/Web HW/Resources/cities.csv',
+                  element: 'table-container', 
+                  allow_download: true,
+                  csv_options: {separator: ';', delimiter: '"'},
+                  datatables_options: {"paging": false}
+                });
+              </script>
+               </body>
+          
+            <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</script>
+
+            </body>
+        </div>
+        
+        <div id="Comparison" class="tabcontent">
+                <body>
+
+                        
+                              <h1>Promotion Dashboards</h1>
+                              <p>Analyzing the Data</p>
+                              <body>
+                                    <div id="plot"></div>
+                                    <div id="plot1"></div>
+                                    <script src="index.js"></script>
+                                </body>
+                                     
+                                
+                            
+                                                        
+                      </body>
+        </div>
+        
+        <script>
+        function openPage(pageName,elmnt,color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+        
+        document.getElementById("defaultOpen").click();
+        </script>
+           
+        </body>
+
+
+
+</html>
